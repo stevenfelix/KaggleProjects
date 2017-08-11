@@ -1,0 +1,23 @@
+## MNIST: Classifying numbers
+
+import numpy as np
+import pandas as pd
+import seaborn as sns
+import matplotlib.pyplot as plt
+#%matplotlib inline
+
+#from sklearn.metrics import roc_curve, auc, classification_report
+#from sklearn.model_selection import train_test_split, GridSearchCV, cross_val_score
+#3from sklearn.linear_model import LogisticRegression, LogisticRegressionCV
+#from sklearn.ensemble import RandomForestClassifier
+#from sklearn import preprocessing
+#from scipy import interp
+#import re
+#from collections import OrderedDict
+#import fancyimpute
+
+dir = '/Users/stevenfelix/Dropbox/DataScience/Projects/Kaggle - Human Resources Analytics/'
+data = pd.read_csv(dir+"MNIST train.csv").assign(Training = 1)
+testdata = pd.read_csv(dir+"test.csv").assign(Survived = -99).assign(Training = 0)[list(data)]
+data = pd.concat([data,testdata], ignore_index=True)
+
